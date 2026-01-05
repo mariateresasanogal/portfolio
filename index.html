@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maria Teresa Sanogal | Finance Analyst & Virtual Assistant</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --accent: #f29d9d;
+        --accent-light: #fce8e8;
+        --accent-dark: #e07a7a;
+        --text-dark: #2d2d2d;
+        --text-medium: #555555;
+        --text-light: #777777;
+        --bg-light: #fafafa;
+        --bg-white: #ffffff;
+        --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+        --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.7;
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 1rem 0;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        text-decoration: none;
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text-medium);
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: var(--transition);
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-dark);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 8rem 2rem 4rem;
+        background: linear-gradient(
+          135deg,
+          var(--bg-white) 0%,
+          var(--accent-light) 100%
+        );
+      }
+
+      .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .hero-content h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .hero-content h1 span {
+        color: var(--accent);
+      }
+
+      .hero-tagline {
+        font-size: 1.25rem;
+        color: var(--accent-dark);
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        color: var(--text-medium);
+        margin-bottom: 2rem;
+        max-width: 500px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(242, 157, 157, 0.4);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--accent);
+        color: var(--accent);
+      }
+
+      .btn-outline:hover {
+        background: var(--accent);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-image-wrapper {
+        position: relative;
+        width: 350px;
+        height: 350px;
+      }
+
+      .hero-image-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: -20px;
+        border-radius: 50%;
+        border: 3px dashed var(--accent);
+        animation: rotate 20s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .avatar-circle {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--accent) 0%,
+          var(--accent-light) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-medium);
+        overflow: hidden;
+      }
+
+      .avatar-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      /* About Section */
+      .about {
+        padding: 6rem 2rem;
+        background: var(--bg-white);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-family: "Poppins", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .section-title span {
+        color: var(--accent);
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--text-light);
+        margin-bottom: 4rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .about-card {
+        background: var(--bg-light);
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .about-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .about-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 20px;
+        background: var(--accent-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 1.8rem;
+        color: var(--accent);
+      }
+
+      .about-card h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--text-dark);
+      }
+
+      .about-card p {
+        color: var(--text-medium);
+        font-size: 0.95rem;
+      }
+
+      /* Skills Section */
+      .skills {
+        padding: 6rem 2rem;
+        background: var(--bg-light);
+      }
+
+      .skills-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .skills-category h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        color: var(--text-dark);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .skills-category h3 i {
+        color: var(--accent);
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .skill-tag {
+        background: var(--bg-white);
+        padding: 0.75rem 1.25rem;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-medium);
+        border: 1px solid #eee;
+        transition: var(--transition);
+      }
+
+      .skill-tag:hover {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      /* Experience Section */
+      .experience {
+        padding: 6rem 2rem;
+        background: var(--bg-white);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 100%;
+        background: var(--accent-light);
+      }
+
+      .timeline-item {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 50%;
+        position: relative;
+        margin-bottom: 3rem;
+      }
+
+      .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-right: 0;
+        padding-left: 50%;
+      }
+
+      .timeline-content {
+        background: var(--bg-light);
+        padding: 2rem;
+        border-radius: 20px;
+        width: calc(100% - 40px);
+        position: relative;
+        transition: var(--transition);
+      }
+
+      .timeline-content:hover {
+        transform: scale(1.02);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 16px;
+        height: 16px;
+        background: var(--accent);
+        border-radius: 50%;
+        border: 4px solid var(--bg-white);
+        z-index: 1;
+      }
+
+      .timeline-date {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 0.35rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-content h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-company {
+        color: var(--accent-dark);
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-content ul {
+        padding-left: 1.25rem;
+        color: var(--text-medium);
+        font-size: 0.95rem;
+      }
+
+      .timeline-content ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Tools Section */
+      .tools {
+        padding: 6rem 2rem;
+        background: var(--bg-light);
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .tool-item {
+        background: var(--bg-white);
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+        text-align: center;
+        transition: var(--transition);
+        border: 2px solid transparent;
+      }
+
+      .tool-item:hover {
+        border-color: var(--accent);
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .tool-icon {
+        font-size: 2rem;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+      }
+
+      .tool-item span {
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: var(--text-medium);
+      }
+
+      /* Education Section */
+      .education {
+        padding: 6rem 2rem;
+        background: var(--bg-white);
+      }
+
+      .education-card {
+        max-width: 600px;
+        margin: 0 auto;
+        background: linear-gradient(
+          135deg,
+          var(--accent-light) 0%,
+          var(--bg-white) 100%
+        );
+        padding: 3rem;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .education-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 2rem;
+        color: white;
+      }
+
+      .education-card h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .education-card p {
+        color: var(--text-medium);
+        margin-bottom: 0.5rem;
+      }
+
+      .education-year {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+
+      /* Certifications */
+      .certifications {
+        padding: 6rem 2rem;
+        background: var(--bg-light);
+      }
+
+      .cert-badge {
+        max-width: 400px;
+        margin: 0 auto;
+        background: var(--bg-white);
+        padding: 2.5rem;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: var(--shadow-soft);
+        border: 2px solid var(--accent-light);
+      }
+
+      .cert-badge i {
+        font-size: 3rem;
+        color: var(--accent);
+        margin-bottom: 1rem;
+      }
+
+      .cert-badge h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .cert-badge p {
+        color: var(--text-light);
+        margin-top: 0.5rem;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 6rem 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--bg-white) 0%,
+          var(--accent-light) 100%
+        );
+      }
+
+      .contact-content {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact-content p {
+        color: var(--text-medium);
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+      }
+
+      .contact-methods {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: var(--bg-white);
+        padding: 1.25rem 2rem;
+        border-radius: 15px;
+        box-shadow: var(--shadow-soft);
+        transition: var(--transition);
+      }
+
+      .contact-method:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .contact-method i {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--accent-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: var(--accent);
+      }
+
+      .contact-method-text {
+        text-align: left;
+      }
+
+      .contact-method-text span {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-light);
+      }
+
+      .contact-method-text strong {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--bg-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: var(--text-medium);
+        text-decoration: none;
+        transition: var(--transition);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .social-link:hover {
+        background: var(--accent);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--text-dark);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      footer p {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      footer span {
+        color: var(--accent);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .hero-container {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 3rem;
+        }
+
+        .hero-content p {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .hero-buttons {
+          justify-content: center;
+        }
+
+        .skills-wrapper {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-item,
+        .timeline-item:nth-child(even) {
+          justify-content: flex-start;
+          padding-left: 60px;
+          padding-right: 0;
+        }
+
+        .timeline-item::after {
+          left: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu {
+          display: block;
+        }
+
+        nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          padding: 1rem;
+          box-shadow: var(--shadow-soft);
+          display: none;
+        }
+
+        nav.active {
+          display: block;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-image-wrapper {
+          width: 250px;
+          height: 250px;
+        }
+
+        .avatar-circle {
+          font-size: 4rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .contact-methods {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+      .delay-2 {
+        animation-delay: 0.2s;
+      }
+      .delay-3 {
+        animation-delay: 0.3s;
+      }
+      .delay-4 {
+        animation-delay: 0.4s;
+      }
+      .hero-tagline {
+        font-weight: bold;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <a href="#" class="logo">M<span>TS</span></a>
+        <nav id="nav">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="fade-in">Hi, I'm <span>Maria Teresa Sanogal</span></h1>
+          <p class="hero-tagline fade-in delay-1">
+            Finance Analyst | Customer Service | Admin Support | Virtual
+            Assistant
+          </p>
+          <p class="fade-in delay-2">
+            Results-driven professional with extensive experience in accounts
+            payable/receivable, customer service excellence, and administrative
+            support. Skilled in streamlining processes and delivering
+            exceptional client experiences.
+          </p>
+          <div class="hero-buttons fade-in delay-3">
+            <a href="#contact" class="btn btn-primary">
+              <i class="fas fa-envelope"></i> Get In Touch
+            </a>
+            <a href="#experience" class="btn btn-outline">
+              <i class="fas fa-briefcase"></i> View Experience
+            </a>
+          </div>
+        </div>
+        <div class="hero-image fade-in delay-4">
+          <div class="hero-image-wrapper">
+            <div class="avatar-circle">
+              <img src="mts.png" alt="Avatar" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title">What I <span>Bring</span></h2>
+        <p class="section-subtitle">
+          Dedicated professional with a proven track record in finance, customer
+          service, and virtual assistance roles.
+        </p>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <h3>Financial Expertise</h3>
+            <p>
+              Proficient in accounts payable/receivable, monthly reconciliation,
+              and financial transaction management with meticulous attention to
+              detail.
+            </p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>Customer Service</h3>
+            <p>
+              Experienced in handling customer inquiries across all channels
+              including phone, email, and chat with professional resolution
+              skills.
+            </p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-laptop-house"></i>
+            </div>
+            <h3>Virtual Assistance</h3>
+            <p>
+              Skilled in remote administrative support, email/calendar
+              management, and community engagement with excellent time
+              management.
+            </p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3>Process Optimization</h3>
+            <p>
+              Proven ability to create SOPs and establish streamlined processes
+              for improved efficiency and team productivity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <h2 class="section-title">My <span>Expertise</span></h2>
+        <p class="section-subtitle">
+          A comprehensive skill set developed through years of professional
+          experience.
+        </p>
+        <div class="skills-wrapper">
+          <div class="skills-category">
+            <h3><i class="fas fa-star"></i> Core Competencies</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Accounts Payable</span>
+              <span class="skill-tag">Accounts Receivable</span>
+              <span class="skill-tag">Monthly Reconciliation</span>
+              <span class="skill-tag">Invoice Processing</span>
+              <span class="skill-tag">Payment Management</span>
+              <span class="skill-tag">Collections</span>
+              <span class="skill-tag">Financial Documentation</span>
+              <span class="skill-tag">Compliance</span>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3><i class="fas fa-cogs"></i> Professional Skills</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Customer Service</span>
+              <span class="skill-tag">Email Management</span>
+              <span class="skill-tag">Calendar Management</span>
+              <span class="skill-tag">Data Entry</span>
+              <span class="skill-tag">Team Leadership</span>
+              <span class="skill-tag">SOP Development</span>
+              <span class="skill-tag">Attention to Detail</span>
+              <span class="skill-tag">Time Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+      <div class="container">
+        <h2 class="section-title">Work <span>Experience</span></h2>
+        <p class="section-subtitle">
+          A journey through diverse roles in finance, customer service, and
+          administration.
+        </p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">Sept 2025 - Jan 2026</span>
+              <h3>Account Payable Specialist</h3>
+              <p class="timeline-company">Homecare Facility</p>
+              <ul>
+                <li>Processing and entering vendor invoices in QuickBooks</li>
+                <li>
+                  Ensuring invoices are accurate, properly coded, and paid on
+                  time
+                </li>
+                <li>
+                  Maintaining vendor records and performing reconciliations
+                </li>
+                <li>Supporting month-end closing and compliance</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">2024 - 2025</span>
+              <h3>Virtual Assistant</h3>
+              <p class="timeline-company">Freelance / Remote</p>
+              <ul>
+                <li>
+                  Managed customer support inbox with professional responses
+                </li>
+                <li>
+                  Oversaw membership community and Facebook group management
+                </li>
+                <li>
+                  Handled financial tasks including contracts and payments
+                </li>
+                <li>Created social media posts and podcast content</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">Mar 2023 - 2025</span>
+              <h3>Finance Analyst</h3>
+              <p class="timeline-company">DXC Technology</p>
+              <ul>
+                <li>Processing accounts payable and accounts receivable</li>
+                <li>Created SOPs as pioneer of Sonova in the Philippines</li>
+                <li>Reconciling company AP and AR</li>
+                <li>
+                  Attending weekly client meetings and managing collections
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">2022 - 2023</span>
+              <h3>Project Coordinator | Customer Service</h3>
+              <p class="timeline-company">Clearsource BPO</p>
+              <ul>
+                <li>Managed backend process of solar projects</li>
+                <li>Scheduled appointments for solar installation</li>
+                <li>Direct communication with clients</li>
+                <li>Processing payments and workflow management</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">2021 - 2022</span>
+              <h3>Senior Advisor | Customer Service</h3>
+              <p class="timeline-company">Tata Consultancy</p>
+              <ul>
+                <li>Handled customer complaints and billing concerns</li>
+                <li>Processed payments and refunds</li>
+                <li>Managed collections and dunning emails</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">2019 - 2021</span>
+              <h3>Escalation Specialist</h3>
+              <p class="timeline-company">Amazon PH</p>
+              <ul>
+                <li>Handled escalated calls, emails, and chats</li>
+                <li>Oversaw small teams and assisted new hires</li>
+                <li>Decision-making on customer resolutions</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <span class="timeline-date">2016 - 2019</span>
+              <h3>Customer Service Representative</h3>
+              <p class="timeline-company">E-Teleconnect & Alorica PH</p>
+              <ul>
+                <li>Directory assistance and customer support</li>
+                <li>Building foundation in customer service excellence</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools" id="tools">
+      <div class="container">
+        <h2 class="section-title">Tools & <span>Software</span></h2>
+        <p class="section-subtitle">
+          Proficient in a wide range of modern business and productivity tools.
+        </p>
+        <div class="tools-grid">
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-book"></i></div>
+            <span>QuickBooks</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-database"></i></div>
+            <span>JD Edwards</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-file-invoice"></i></div>
+            <span>SAP Concur</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-microsoft"></i></div>
+            <span>MS Office</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-google"></i></div>
+            <span>Google Suite</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-salesforce"></i></div>
+            <span>Salesforce</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-comments"></i></div>
+            <span>Intercom</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-tasks"></i></div>
+            <span>Monday.com</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-graduation-cap"></i></div>
+            <span>Kajabi</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-calendar-alt"></i></div>
+            <span>Calendly</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-slack"></i></div>
+            <span>Slack</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-video"></i></div>
+            <span>Zoom</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-stripe-s"></i></div>
+            <span>Stripe</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-paint-brush"></i></div>
+            <span>Canva</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-envelope"></i></div>
+            <span>Outlook</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-check-circle"></i></div>
+            <span>ClickUp</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-amazon"></i></div>
+            <span>Amazon</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-headset"></i></div>
+            <span>Zendesk</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+      <div class="container">
+        <h2 class="section-title">Education & <span>Certification</span></h2>
+        <p class="section-subtitle">
+          Academic background and professional certifications.
+        </p>
+        <div class="education-card">
+          <div class="education-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Associate of Computer Science</h3>
+          <p>Asian Institute of Computer Studies</p>
+          <span class="education-year">2013 - 2015</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications">
+      <div class="container">
+        <div class="cert-badge">
+          <i class="fas fa-award"></i>
+          <h3>QuickBooks Certified</h3>
+          <p>Professional certification in QuickBooks accounting software</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-title">Let's <span>Connect</span></h2>
+        <div class="contact-content">
+          <p>
+            I'm always open to discussing new opportunities, collaborations, or
+            simply connecting with like-minded professionals. Feel free to reach
+            out!
+          </p>
+          <div class="contact-methods">
+            <div class="contact-method">
+              <i class="fas fa-envelope"></i>
+              <div class="contact-method-text">
+                <span>Email</span>
+                <strong>Contact Me</strong>
+              </div>
+            </div>
+            <div class="contact-method">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="contact-method-text">
+                <span>Location</span>
+                <strong>Philippines</strong>
+              </div>
+            </div>
+            <div class="contact-method">
+              <i class="fas fa-briefcase"></i>
+              <div class="contact-method-text">
+                <span>Status</span>
+                <strong>Open to Opportunities</strong>
+              </div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/mariateresasanogal"
+              class="social-link"
+              title="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="mailto:mariateresa.sanogal2912@gmail.com"
+              class="social-link"
+              title="Email"
+              ><i class="fas fa-envelope"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/mariateresa.sanogal"
+              class="social-link"
+              title="Facebook"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 <span>Maria Teresa Sanogal</span>. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      function toggleMenu() {
+        const nav = document.getElementById("nav");
+        nav.classList.toggle("active");
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+          // Close mobile menu if open
+          document.getElementById("nav").classList.remove("active");
+        });
+      });
+
+      // Header background on scroll
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
+        } else {
+          header.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.06)";
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document
+        .querySelectorAll(
+          ".about-card, .timeline-content, .tool-item, .skill-tag"
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "all 0.6s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
